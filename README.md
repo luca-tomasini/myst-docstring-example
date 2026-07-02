@@ -1,67 +1,47 @@
-# Grid-Template (Replace the name)
+# MyST + Sphinx autodoc example
 
-Author: Mohammad Rayati (Replace the name)
+This repository is a complete, minimal example showing how to use
+[MyST](https://myst-parser.readthedocs.io/) with
+[Sphinx autodoc](https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html)
+to pull Python docstrings from `mymodule.py` into Markdown documentation pages.
 
----
+## Files included
 
-## Overview (Replace this section)
+- `mymodule.py` - example module with documented functions and a class
+- `docs/conf.py` - Sphinx configuration for MyST and autodoc
+- `docs/index.md` - landing page with autodoc directives
+- `docs/api.md` - API reference page with multiple autodoc examples
+- `requirements.txt` - dependencies needed to build the docs
 
-Describe your project here:  
-- What does it do?  
-- Why does it exist?  
-- Who is it for?  
-- What problem does it solve?  
+## Install dependencies
 
-This repository provides a clean starting point with standard tooling for Python-based research and development projects at the Institute of Energies (Power Systems Group).  
-
----
-
-## Project Features (Replace this section)
-
-- Standardized project structure  
-- Makefile automation for development workflows  
-- Virtual environment setup and dependency management  
-- Environment-variable handling  
-- Predefined folder structure for `src`, `tests`, `docs`, `scripts`, `experiments`, and `data`  
-- Optional integration with recommended Git & Python best practices  
-- Zero magic, zero surprises (well almost)
-
----
-
-## How to Run (Replace this section)
-
-1. Click **“Use this template”** on the GitHub page.  
-2. Select **“Create new repository”**, name your project, and choose where to host it.  
-3. Clone your new repository locally.
-
----
-
-## Installation & Setup (Replace this section)
-
-1. Install `make` (if not already installed): 
-```sh
-    sudo apt update
-    sudo apt install make
+```bash
+python -m pip install -r requirements.txt
 ```
 
-2. Initialize the project and create the virtual environment: 
-```sh
-    make install-all # if something fails, try to debug, if not working, raise an issue or contact someone
-    make venv-activate
+## Build the documentation
+
+```bash
+sphinx-build -b html docs docs/_build/html
 ```
 
-3. If you delete your `.venv`, you can run `make install-all` to install everything from beginning.
+After the build finishes, open `docs/_build/html/index.html` in a browser.
 
-For recommended Git and Python best practices, refer to [here](docs/best_practices.md).
+## What this example demonstrates
 
----
+- `autofunction` for individual functions
+- `autoclass` for classes and methods
+- `automodule` for module-level API pages
+- autodoc options such as `:members:`, `:undoc-members:`, and `:special-members:`
 
-## Remarks
+## Project layout
 
-This template currently works on Linux-based systems (including WSL).
-On macOS, some Makefile targets may not work.
-To see all available Makefile commands, simply run: 
-```sh
-    make
+```text
+.
+├── docs
+│   ├── api.md
+│   ├── conf.py
+│   └── index.md
+├── mymodule.py
+└── requirements.txt
 ```
-Or open the Makefile directly to see what’s going on under the hood.
